@@ -1,0 +1,20 @@
+.first{
+    height:6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.op1{
+    display: flex;
+    height: 4vh;   
+}
+
+.pointer{
+    
+}
+.pointer:active{
+   background-color:gray
+}
+.second{margin-top: 94px;
+}

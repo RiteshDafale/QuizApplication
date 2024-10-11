@@ -1,0 +1,14 @@
+@media only screen and (max-width: 600px) {
+.home{
+    /* background-color: blue;
+    color:white; */
+}
+.playbtn{
+    /* border:2px solid red; */
+    font-size: 23px;
+}
+.bg-customColor{
+    background-color: rgba(89, 6, 6, 0.82);
+}
+
+}
