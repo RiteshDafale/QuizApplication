@@ -2,17 +2,17 @@ import React, { useContext, useState } from 'react'
 import './Home.css'
 import { useNavigate } from 'react-router-dom'
 import homePhoto from '../image/image2.png'
-import { Context,setname } from '../Context/Context'
+import { AuthContext } from '../Context/Context'
 
 
 
 function Home() {
-  const [userName,setuserName] = useState({});
+  const [userName,setuserName] = useState('');
+ const {setname}  = useContext(AuthContext)
   const navigate = useNavigate();
-  // const setname = useContext(Context)
   return (
     <div className='App   border border-danger'>
-      <p>Your entered name: {userName.username}</p>
+      <p>Your entered name : {userName}</p>
       <div className="  bg-secondary w-100">
         <img src={homePhoto} class="photo img-fluid object-fit-cover" alt="..." />
       </div>
@@ -26,17 +26,15 @@ function Home() {
           <div className="input m-2 border border-danger">
             <input type="text" className='w-100 fs-5 text-center' id="username"   placeholder='Enter your name ...' required 
             onChange={(e)=>{
-              setuserName({
-                ...userName,
-                username:e.target.value
-              })
+               setuserName(e.target.value)
             }}            
             />
             <input type="text" className='w-100 my-3 fs-5 text-center' placeholder='Username  ...'  required/>
             <input type="text" className='w-100 mb-3 fs-5 text-center' placeholder='Email id ...' />
             <button className='rounded-3'
             onClick={(e)=>{
-              // setname(userName.username);
+              console.log(userName);
+              setname(userName)              
               navigate("/question")
             }}            
             >START</button>          

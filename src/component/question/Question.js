@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Context, name } from '../Context/Context'
 import './Question.css'
 import { toast } from 'react-toastify'
+// import { AuthProvider,name } from '../Context/Context' 
+import { AuthContext,name } from '../Context/Context'
 
 
 
 
 function Question() {
-  const name = useContext(Context)
-  // function funtionComponent() {
+  const {name} = useContext(AuthContext)
   const questionList = [
     {
       question: "Which language runs on a web browser?",
@@ -38,9 +38,6 @@ function Question() {
     // Add more questions as needed
   ];
 
-  // useEffect(() => {
-
-  // }, [])
 
 
   const [currentQuestion_No, setcurrentQuestion_No] = useState(0);  // will set the index of current question index
@@ -50,7 +47,6 @@ function Question() {
   const [score, setscore] = useState(0)
   const currentQuestion = questionList[currentQuestion_No];
   const [bgcolor, setbgcolor] = useState('gray');
-
 
   const varifyAnswer = () => {
     if (currentQuestion.correctAnswer === selectedOpt) {
@@ -85,7 +81,7 @@ function Question() {
     <div className="container">
       <div className='container position-relative'>
         <div className="row border border-danger mt-3">
-          <div className="col-4 border   fs-6 ">Name of candidate</div>
+          <div className="col-4 border   fs-6 ">{name}</div>
           <div className="col-4 border d-flex justify-content-center align-items-center">Score = {score} </div>
           <div className="col-4 border ">time </div>
         </div>

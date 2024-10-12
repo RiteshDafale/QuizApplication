@@ -1,15 +1,15 @@
 import React, { useState, createContext } from 'react';
 
-// Create the context
-export const Context = createContext(); // Use a meaningful name
+// Create the AuthContext
+export const AuthContext = createContext(null);
 
-// Create a provider component
-export const ContextProvider = ({ children }) => {
-    const [name, setName] = useState('');
+// Create the AuthProvider component
+export const AuthProvider = ({ children }) => {
+  const [name,setname] = useState("")
 
-    return (
-        <Context.Provider value={{ name, setName }}>
-            {children}
-        </Context.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{name,setname }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

@@ -8,6 +8,7 @@ import Home from './component/Homepage/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from './component/Context/Context';
 
 
 function App() {
@@ -15,28 +16,29 @@ function App() {
 
   return (
     <div className="App">
-  <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
-{/* Same as */}
-<ToastContainer />
-        
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
+      <AuthProvider>
         <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/question' element={<Question/>} />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/question' element={<Question />} />
           </Routes>
-          </BrowserRouter>
-          </div>
+        </BrowserRouter>
+      </AuthProvider>
+    </div>
   );
 }
 
