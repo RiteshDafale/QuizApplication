@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Qrscanner from './component/Qrscanner';
+import Qrscanner from './component/QrCode';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap'
 import Question from './component/question/Question'
@@ -33,7 +33,8 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Qrscanner />} />
+            <Route path='/QuizApplication' element={<Home />} />
             <Route path='/question' element={<Question />} />
           </Routes>
         </BrowserRouter>

@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Question.css'
 import { toast } from 'react-toastify'
 // import { AuthProvider,name } from '../Context/Context' 
-import { AuthContext,name } from '../Context/Context'
+import { AuthContext, name } from '../Context/Context'
 
 
 
 
 function Question() {
-  const {name} = useContext(AuthContext)
+  const { name } = useContext(AuthContext)
   const questionList = [
     {
       question: "Which language runs on a web browser?",
@@ -46,15 +46,12 @@ function Question() {
   const [selectedOpt, setselectedOpt] = useState('')
   const [score, setscore] = useState(0)
   const currentQuestion = questionList[currentQuestion_No];
-  const [bgcolor, setbgcolor] = useState('gray');
 
   const varifyAnswer = () => {
     if (currentQuestion.correctAnswer === selectedOpt) {
-      setscore(score + 10)
 
-
-      toast.success('Congratulations', {
-        position: "bottom-center",
+      toast.success(`${name} Congratulation`, {
+        position: "top-center",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -62,16 +59,36 @@ function Question() {
         draggable: true,
         progress: undefined,
         theme: "light",
+        style: {
+          top: '52px'
+        },
       });
       setselectedOpt(" ")
       if (currentQuestion_No < questionList.length - 1) {
         setcurrentQuestion_No(currentQuestion_No + 1);  // Move to the next question
+        setscore(score + 10);
+
       } else {
-        toast.info("Quiz completed!");
-        setscore(0)  // reset score
+        toast.success(`🎉 Congrats, ${name}! You finished the quiz! 🏆 Score: ${score}`,{
+          style: {
+            top: '52px'
+          },
+        });
       }
     } else {
-      toast.error("Wrong answer! Try again.");
+      toast.error(`Oops, ${name}! Thats not correct Try again!`, {
+        position: "top-center",
+        autoClose: 700,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: {
+          top: '52px'
+        },
+      });
     }
 
   }
@@ -81,9 +98,8 @@ function Question() {
     <div className="container">
       <div className='container position-relative'>
         <div className="row border border-danger mt-3">
-          <div className="col-4 border   fs-6 ">{name}</div>
-          <div className="col-4 border d-flex justify-content-center align-items-center">Score = {score} </div>
-          <div className="col-4 border ">time </div>
+          <div className="col-6 border   fs-6 ">{name}</div>
+          <div className="col-6 border d-flex justify-content-center align-items-center">Score = {score} </div>
         </div>
       </div>
 
@@ -95,6 +111,7 @@ function Question() {
           <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark color " id="bgcolor"
             onClick={(e) => {
               setselectedOpt(currentQuestion.options[0])
+    
             }}
           >{currentQuestion.options[0]}</div>
 
@@ -112,10 +129,10 @@ function Question() {
           >
             {currentQuestion.options[2]}
           </div>
-          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark"
+          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark" id="forthc"
             onClick={(e) => {
               setselectedOpt(currentQuestion.options[3])
-
+           
             }}
           >
             {currentQuestion.options[3]}
