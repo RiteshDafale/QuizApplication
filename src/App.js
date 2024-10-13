@@ -33,7 +33,7 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Qrscanner />} />
+            {/* <Route path='/' element={<Qrscanner />} /> */}
             <Route path='/QuizApplication' element={<Home />} />
             <Route path='/question' element={<Question />} />
           </Routes>
