@@ -30,7 +30,7 @@ function Home() {
               }}
             />
             <input type="text" className='w-100 my-3 fs-5 text-center' placeholder='Username  ...' required />
-            <input type="text" className='w-100 mb-3 fs-5 text-center' placeholder='Email id ...' />
+            <input type="email" className='w-100 mb-3 fs-5 text-center' placeholder='Email id ...' />
             <button className='rounded-3'
               onClick={(e) => {
                 if (userName) {

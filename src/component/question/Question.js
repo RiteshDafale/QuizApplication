@@ -3,12 +3,14 @@ import './Question.css'
 import { toast } from 'react-toastify'
 // import { AuthProvider,name } from '../Context/Context' 
 import { AuthContext, name } from '../Context/Context'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 function Question() {
   const { name } = useContext(AuthContext)
+  const navigate = useNavigate();
   const questionList = [
     {
       question: "Which language runs on a web browser?",
@@ -69,11 +71,12 @@ function Question() {
         setscore(score + 10);
 
       } else {
-        toast.success(`🎉 Congrats, ${name}! You finished the quiz! 🏆 Score: ${score}`,{
-          style: {
-            top: '52px'
-          },
-        });
+        //       toast.success(`🎉 Congrats, ${name}! You finished the quiz! 🏆 Score: ${score}`,{
+        //   style: {
+        //     top: '52px'
+        //   },
+        // });
+        navigate("/CongoMessage",{ state: { score: score } })
       }
     } else {
       toast.error(`Oops, ${name}! Thats not correct Try again!`, {
@@ -97,39 +100,39 @@ function Question() {
   return (
     <div className="container">
       <div className='container position-relative'>
-        <div className="row border border-danger mt-3">
-          <div className="col-6 border   fs-6 ">{name}</div>
-          <div className="col-6 border d-flex justify-content-center align-items-center">Score = {score} </div>
+        <div className="row  mt-3">
+          <div className="col-6    fs-6 ">{name}</div>
+          <div className="col-6  d-flex justify-content-center align-items-center">Score = {score} </div>
         </div>
       </div>
 
       {/* HEADING SCORE AND TIMING */}
-      <div className=' container second' >
+      <div className=' container second ' >
         <div className="col border text-dark shadow fs-6 first ">{currentQuestion.question}</div>
         {/* QUESTION  */}
         <div className="row mt-3 justify-content-center align-items-center">
-          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark color " id="bgcolor"
+          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark color " id="forth"i
             onClick={(e) => {
               setselectedOpt(currentQuestion.options[0])
     
             }}
           >{currentQuestion.options[0]}</div>
 
-          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark my-3"
+          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark my-3" id="forth"
             onClick={(e) => {
               setselectedOpt(currentQuestion.options[1])
             }}
           >
             {currentQuestion.options[1]}
           </div>
-          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark mb-3"
+          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark mb-3" id="forth"
             onClick={(e) => {
               setselectedOpt(currentQuestion.options[2])
             }}
           >
             {currentQuestion.options[2]}
           </div>
-          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark" id="forthc"
+          <div className="col-12 op1 d-flex justify-content-center align-items-center border border-dark" id="forth"
             onClick={(e) => {
               setselectedOpt(currentQuestion.options[3])
            

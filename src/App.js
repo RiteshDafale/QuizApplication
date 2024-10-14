@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider } from './component/Context/Context';
+import Congrates from './component/Congrates/Congrates';
 
 
 function App() {
@@ -33,9 +34,10 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            {/* <Route path='/' element={<Qrscanner />} /> */}
+            <Route path='/' element={<Qrscanner />} />
             <Route path='/QuizApplication' element={<Home />} />
             <Route path='/question' element={<Question />} />
+            <Route path='/CongoMessage' element={<Congrates />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

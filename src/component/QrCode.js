@@ -2,7 +2,7 @@ import React from 'react'
 import { QRCodeCanvas } from 'qrcode.react'; 
 
 function Qrscanner() {
-  const quizURL = "http://localhost:3000/QuizApplication";
+  const quizURL = "https://riteshdafale.github.io/QuizApplication/";
   return (
     <div>
       <h2>Scan this QR Code to take the Quiz</h2>
